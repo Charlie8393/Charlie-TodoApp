@@ -9,10 +9,13 @@ const Information = styled.div`
     margin-top: 30px;
 `
 function TodoDate(){
+    const Today = new Date();
+    
     return(
         <>
-        <Information>2022/04/26</Information>
-        <Information>Tuesday</Information>
+        <div>{Today.getFullYear()}</div>
+        <div>{Today.getMonth()+1}</div>
+        <div>{Today.getDate()}</div>
         </>
     );
 }

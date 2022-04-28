@@ -3,7 +3,7 @@ import styled from "styled-components";
 import TodoAdd from "../TodoAdd";
 import TodoDate from "../TodoDate";
 import TodoLeft from "../TodoLeft";
-
+import TodoItem from "../TodoItem";
 const Container = styled.div`
     height: 100vh;
     background-color:#c0eb34;
@@ -25,6 +25,7 @@ function Mainpage(){
                 <TodoDate />
                 <TodoLeft />
                 <TodoAdd />
+                <TodoItem/>
             </Todobox>
         </Container>
     );

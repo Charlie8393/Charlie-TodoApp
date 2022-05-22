@@ -19,13 +19,26 @@ const Todobox = styled.div`
     background-color: #4287f5;
 `
 function Mainpage(){
+    const[age, setage] = useState(19);
+    const[todos,setTodos] = useState([]);
+    console.log(todos);
+    const [studnetfirst, studentlast]= useState({
+        studnetfirst : "",
+        studentlast : ""
+    });
+    const addTodo = (todo)=>{
+        console.log(todos)
+        // ... part copy everything on list.
+        setTodos([...todos,todo]);
+    }
+
     return(
         <Container>
             <Todobox>
                 <TodoDate />
-                <TodoLeft />
-                <TodoAdd />
-                <TodoItem/>
+                <TodoLeft todos={todos} />
+                <TodoAdd todos={todos} updateTodo={addTodo}/>
+                <TodoItem todos={todos} updateTodo={todos}/>
             </Todobox>
         </Container>
     );

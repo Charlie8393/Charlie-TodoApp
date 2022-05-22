@@ -12,21 +12,30 @@ const CheckBox = styled.button`
     height: 30px;
     position: relative;
 `;
-const Homework = styled.div`
-    font-size:24px;
+const Text = styled.div`
+    color: #87f542;
+    font-weight: 800;
+    font-size: 15px;
+    margin-top: 30px;
 `
 
 const Trash = styled.img`
     width: 30px;
     height: 30px;
-    margin-left: 30px;
+    margin-left: 230px;
 `
-function TodoItem(){
+function TodoItem({plustodo}){
+    const [todo] = useState({
+        text:"",
+    });
+    const onClickChange = () =>{
+        plustodo(todo);
+    }
+    console.log(todo);
     return(
         <Container>
-        <CheckBox/>
-        <Homework>Finish Homework</Homework>
-        <Trash src="https://cdn-icons.flaticon.com/png/512/542/premium/542724.png?token=exp=1651106486~hmac=d66af5b5943a8a5fa2a5e6b8518acaa6"></Trash>
+        <CheckBox onClick={onClickChange}/>
+        <Trash src="https://cdn-icons-png.flaticon.com/512/3096/3096673.png"></Trash>
         </Container>
     );
 }

@@ -14,27 +14,36 @@ const Button = styled.button`
     position: relative;
     background-color:#03fc90;
 `
-function TodoAdd(){
-    const history = useHistory();
-    const[user,setUser] = useState({
-        id:"",
+
+function TodoAdd({todos,updateTodo}){
+    const [todo, setTodo] = useState({
+        id: null,
+        text:"",
+        isDone:false,
     });
-    const {id} = user;
-    const putUserInfo = (e) => {
+    
+    const putTodoInfo = (e) => {
     const {name,value} = e.target;
         console.log(name);
         console.log(value);
-        setUser ({
-            ...user,
-            // use name to avoid repetition to use same code.
-            [name]: value,
+        setTodo ({
+            id: todos.length + 1,
+            text: value,
+            isDone:false,
         });
-        console.log(user);
+        console.log(todo);
     }
+    
+    const onClickChange = () =>{
+        //function
+        updateTodo(todo);
+        // alert("Go");
+    }
+
     return(
         <>
-        <Input type="text" value = {id} name = "id" onChange={putUserInfo}></Input>
-        <Button>Add</Button>
+        <Input type="text" value={todo.text} name="text" onChange={putTodoInfo}></Input>
+        <Button onClick={onClickChange}>Add</Button>
         </>
     );
 }

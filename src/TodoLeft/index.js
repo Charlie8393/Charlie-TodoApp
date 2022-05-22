@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const Left = styled.div`
+const Text = styled.div`
     color: #87f542;
     font-weight: 800;
     font-size: 15px;
     margin-top: 30px;
 `
-function TodoLeft(){
+function TodoLeft({todos,age}){
     return(
-        <Left>6 todos left</Left>
+        <>
+        <Text>{todos.length} todos left</Text>
+        
+        </>
     );
 }
 export default TodoLeft;

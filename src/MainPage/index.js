@@ -20,7 +20,12 @@ const Todobox = styled.div`
 `
 function Mainpage(){
     const[age, setage] = useState(19);
-    const[todos,setTodos] = useState([]);
+    const[todos,setTodos] = useState([{
+        isDone: false,
+        text: "hello",
+        id: 1
+    }
+    ]);
     console.log(todos);
     const [studnetfirst, studentlast]= useState({
         studnetfirst : "",
@@ -37,7 +42,7 @@ function Mainpage(){
             <Todobox>
                 <TodoDate />
                 <TodoLeft todos={todos} />
-                <TodoAdd todos={todos} updateTodo={addTodo}/>
+                <TodoAdd todos={todos} updateTodo={todos}/>
                 <TodoItem todos={todos} updateTodo={todos}/>
             </Todobox>
         </Container>

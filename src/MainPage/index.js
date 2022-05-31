@@ -23,7 +23,7 @@ function Mainpage(){
     const[todos,setTodos] = useState([{
         isDone: false,
         text: "hello",
-        id: 1
+        id: 1,
     }
     ]);
     console.log(todos);
@@ -37,13 +37,17 @@ function Mainpage(){
         setTodos([...todos,todo]);
     }
 
+    const deleteTodo = () => {
+        setTodos([])
+    }
+
     return(
         <Container>
             <Todobox>
                 <TodoDate />
                 <TodoLeft todos={todos} />
-                <TodoAdd todos={todos} updateTodo={todos}/>
-                <TodoItem todos={todos} updateTodo={todos}/>
+                <TodoAdd todos={todos} updateTodo={addTodo}/>
+                <TodoItem todos={todos} remove={deleteTodo}/>
             </Todobox>
         </Container>
     );

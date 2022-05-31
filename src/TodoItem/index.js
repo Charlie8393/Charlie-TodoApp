@@ -6,10 +6,15 @@ const Container = styled.div`
     display:flex;
     flex-direction:row;
 `;
-const CheckBox = styled.button`
-    background-image: url("https://cdn-icons-png.flaticon.com/512/3096/3096673.png");
+const Input = styled.button`
     width: 50px;
     height:50px;
+`;
+
+const CheckBox2 = styled.img`
+    width: 50px;
+    height:50px;
+    margin-left: 150px;
 `;
 const Text = styled.div`
     color: #87f542;
@@ -17,35 +22,18 @@ const Text = styled.div`
     font-size: 15px;
     margin-top: 30px;
 `
-const Input = styled.input`
-    width: 20px;
-    height: 20px;
-`
-function TodoItem({plustodo,setTodos}){
-    const[todos,setTodo]= useState([{
-        isDone: null,
-        text: "hello",
-        id: 1
-    }
-    ]);
-    const putTodoInfo = (e) => {
-        const {name,value} = e.target;
-            console.log(name);
-            console.log(value);
-            setTodos ({...null});
-            console.log(todo);
-        }
-    const [todo] = useState({
-        text:"",
-    });
+function TodoItem({remove,todos}){
+    console.log(todos)
+    
     const onClickChange = () =>{
-        plustodo(todo);
+        remove()
     }
-    console.log(todo);
+    
     return(
         <Container>
-        <CheckBox type="text"value={todo.text} name="text"  onClick={onClickChange} />
-        <Text type="text" value={todo.text} name="text" onChange={putTodoInfo}>Trash</Text>
+        <Input></Input>
+        <Text type="text" value={todos[0].text} name="text">Hello</Text>
+        <CheckBox2  src="https://cdn-icons-png.flaticon.com/512/3096/3096673.png" onClick={onClickChange} />
         </Container>
     );
 }

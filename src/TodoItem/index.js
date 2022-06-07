@@ -22,17 +22,16 @@ const Text = styled.div`
     font-size: 15px;
     margin-top: 30px;
 `
-function TodoItem({remove,todos}){
-    console.log(todos)
+function TodoItem({deletTodo,todo}){
     
     const onClickChange = () =>{
-        remove()
+        deletTodo();
     }
     
     return(
         <Container>
         <Input></Input>
-        <Text type="text" value={todos[0].text} name="text">Hello</Text>
+        <Text>{todo.text}</Text>
         <CheckBox2  src="https://cdn-icons-png.flaticon.com/512/3096/3096673.png" onClick={onClickChange} />
         </Container>
     );

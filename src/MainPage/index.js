@@ -4,6 +4,7 @@ import TodoAdd from "../TodoAdd";
 import TodoDate from "../TodoDate";
 import TodoLeft from "../TodoLeft";
 import TodoItem from "../TodoItem";
+import TodoList from "../TodoList";
 const Container = styled.div`
     height: 100vh;
     background-color:#c0eb34;
@@ -38,7 +39,8 @@ function Mainpage(){
     }
 
     const deleteTodo = () => {
-        setTodos([])
+        const newTodos = [];
+        setTodos([newTodos])
     }
 
     return(
@@ -47,7 +49,8 @@ function Mainpage(){
                 <TodoDate />
                 <TodoLeft todos={todos} />
                 <TodoAdd todos={todos} updateTodo={addTodo}/>
-                <TodoItem todos={todos} remove={deleteTodo}/>
+                <TodoList todos={todos} removeTodo = {deleteTodo}/>
+                {/*<TodoItem todos={todos} remove={deleteTodo}/>*/}
             </Todobox>
         </Container>
     );

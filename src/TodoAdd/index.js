@@ -17,19 +17,18 @@ const Button = styled.button`
 
 function TodoAdd({todos,updateTodo}){
     const [todo, setTodo] = useState({
-        id: null,
+        id: true,
         text:"",
-        isDone:false,
+        isDone:true,
     });
     
     const putTodoInfo = (e) => {
     const {name,value} = e.target;
-        console.log(name);
-        console.log(value);
+       
         setTodo ({
             id: todos.length + 1,
             text: value,
-            isDone:false,
+            isDone:true,
         });
         console.log(todo);
     }

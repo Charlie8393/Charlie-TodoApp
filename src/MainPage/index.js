@@ -20,27 +20,26 @@ const Todobox = styled.div`
     background-color: #4287f5;
 `
 function Mainpage(){
-    const[age, setage] = useState(19);
-    const[todos,setTodos] = useState([{
-        isDone: false,
-        text: "hello",
-        id: 1,
-    }
-    ]);
-    console.log(todos);
-    const [studnetfirst, studentlast]= useState({
-        studnetfirst : "",
-        studentlast : ""
-    });
+
+    const[todos,setTodos] = useState([]);
+    
     const addTodo = (todo)=>{
-        console.log(todos)
+ 
         // ... part copy everything on list.
         setTodos([...todos,todo]);
     }
+    // .filter -->
+    // .map --> iterate the array
+    const removeTodo = (id) => {
+        console.log(id);
+        const newTodos = todos.filter((todo)=> todo.id != id);
+        setTodos((newTodos));
+    }
 
-    const deleteTodo = () => {
-        const newTodos = [];
-        setTodos([newTodos])
+    const changeIsDone = (id) =>{
+        const currentTodo = todos[id - 1];
+        console.log(currentTodo);
+        
     }
 
     return(
@@ -49,8 +48,9 @@ function Mainpage(){
                 <TodoDate />
                 <TodoLeft todos={todos} />
                 <TodoAdd todos={todos} updateTodo={addTodo}/>
-                <TodoList todos={todos} removeTodo = {deleteTodo}/>
-                {/*<TodoItem todos={todos} remove={deleteTodo}/>*/}
+                <TodoList todos={todos} deleteTodo = {removeTodo} todo = {changeIsDone}/>
+                {/*<TodoItem todos={todos} remove={changeIsDone}/>*/}
+                
             </Todobox>
         </Container>
     );
